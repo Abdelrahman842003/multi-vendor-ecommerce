@@ -1,6 +1,6 @@
 <?php
-namespace App\Http\Interface;
-interface ProductInterface{
+namespace App\Http\Interface\Dashboard;
+interface StoreInterface{
     public function index();
     public function create();
     public function show($id);

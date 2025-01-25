@@ -14,13 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('frontend.home');
+Route::get('/{product}/show', [\App\Http\Controllers\Frontend\HomeController::class, 'show'])->name('frontend.product.show');
 
 Route::get('/dashboardAdmin', function () {
     return view('dashboard.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'checkUserType:admin'])->name('dashboard');
 
 //Route::middleware('auth')->group(function () {
 //    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,5 +27,5 @@ Route::get('/dashboardAdmin', function () {
 //    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 //});
 
-require __DIR__.'/dashboard.php';
-require __DIR__.'/auth.php';
+require __DIR__ . '/dashboard.php';
+require __DIR__ . '/auth.php';

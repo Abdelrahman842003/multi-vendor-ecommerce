@@ -1,19 +1,20 @@
 <?php
 
-namespace App\View\Components\Frontend;
+namespace App\View\Components\frontend;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class master extends Component
+class FrontLayout extends Component
 {
+    public $title = '';
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($title = 'Store')
     {
-        //
+        $this->title = $title;
     }
 
     /**
@@ -21,6 +22,6 @@ class master extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.frontend.master');
+        return view('components.frontend.front-layout');
     }
 }

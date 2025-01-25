@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
-use App\Http\Interface\CategoryInterface;
-use App\Http\Interface\ProductInterface;
-use App\Http\Interface\StoreInterface;
-use App\Http\Repository\CategoryRepository;
-use App\Http\Repository\ProductRepository;
-use App\Http\Repository\StoreRepository;
+use App\Http\Interface\Dashboard\CategoryInterface;
+use App\Http\Interface\Dashboard\ProductInterface;
+use App\Http\Interface\Dashboard\StoreInterface;
+use App\Http\Interface\Frontend\HomeInterface;
+use App\Http\Repository\Dashboard\CategoryRepository;
+use App\Http\Repository\Dashboard\ProductRepository;
+use App\Http\Repository\Dashboard\StoreRepository;
+use App\Http\Repository\Frontend\HomeRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryProvider extends ServiceProvider
@@ -17,9 +19,14 @@ class RepositoryProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // dashboard repository
         $this->app->bind(StoreInterface::class, StoreRepository::class);
         $this->app->bind(CategoryInterface::class, CategoryRepository::class);
         $this->app->bind(ProductInterface::class, ProductRepository::class);
+
+        // frontend repository
+        $this->app->bind(HomeInterface::class, HomeRepository::class);
+
 
     }
 

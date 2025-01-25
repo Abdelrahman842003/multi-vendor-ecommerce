@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Repository;
+namespace App\Http\Repository\Dashboard;
 
-use App\Http\Interface\CategoryInterface;
+use App\Http\Interface\Dashboard\CategoryInterface;
 use App\Http\Traits\AttachFilesTrait;
 use App\Models\Category;
 use App\Models\Store;

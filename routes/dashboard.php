@@ -6,8 +6,7 @@ use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\StoreController;
 use Illuminate\Support\Facades\Route;
 
-Route::
-middleware('auth')->prefix('dashboard')->group(function () {
+Route::middleware(['auth', 'checkUserType:admin'])->prefix('dashboard')->group(function () {
 
 
     Route::get('/dashboardAdmin', function () {
@@ -21,7 +20,8 @@ middleware('auth')->prefix('dashboard')->group(function () {
     Route::put('store/{store}/restore', [StoreController::class, 'restore'])->name('dashboard.store.restore');
     Route::delete('store/{store}/forceDelete', [
         StoreController::class,
-        'forceDelete'])->name('dashboard.store.forceDelete');
+        'forceDelete'
+    ])->name('dashboard.store.forceDelete');
 
 
     Route::resource('store', StoreController::class)->names('dashboard.store');
@@ -34,10 +34,12 @@ middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('category/trash', [CategoryController::class, 'trash'])->name('dashboard.category.trash');
     Route::put('category/{category}/restore', [
         CategoryController::class,
-        'restore'])->name('dashboard.category.restore');
+        'restore'
+    ])->name('dashboard.category.restore');
     Route::delete('category/{category}/forceDelete', [
         CategoryController::class,
-        'forceDelete'])->name('dashboard.category.forceDelete');
+        'forceDelete'
+    ])->name('dashboard.category.forceDelete');
 
 
     Route::resource('category', CategoryController::class)->names('dashboard.category');
@@ -45,15 +47,18 @@ middleware('auth')->prefix('dashboard')->group(function () {
 
     Route::get('product/trash', [
         ProductController::class,
-        'trash'])->name('dashboard.product.trash');
+        'trash'
+    ])->name('dashboard.product.trash');
 
     Route::put('product/{product}/trash', [
         ProductController::class,
-        'restore'])->name('dashboard.product.restore');
+        'restore'
+    ])->name('dashboard.product.restore');
 
     Route::delete('product/{product}/forceDelete', [
         ProductController::class,
-        'forceDelete'])->name('dashboard.product.forceDelete');
+        'forceDelete'
+    ])->name('dashboard.product.forceDelete');
     // end category routes
 
 
@@ -69,6 +74,4 @@ middleware('auth')->prefix('dashboard')->group(function () {
 
 
     // end user routes
-
-
 });

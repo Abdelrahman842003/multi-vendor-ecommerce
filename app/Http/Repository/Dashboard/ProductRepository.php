@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Repository;
+namespace App\Http\Repository\Dashboard;
 
-use App\Http\Interface\ProductInterface;
+use App\Http\Interface\Dashboard\ProductInterface;
 use App\Http\Traits\AttachFilesTrait;
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\Store;
 use App\Models\Tag;
 use Exception;
 use Illuminate\Support\Str;
@@ -21,7 +20,7 @@ class ProductRepository implements ProductInterface
             'name' => 'nullable|string',
             'status' => 'nullable|string|in:active,archived',]);
 
-        $products = Product::filter($requestFilter)->with(['store', 'category'])->get();
+        $products = Product::productsReturn()->filter($requestFilter)->with(['store', 'category'])->get();
 
         return view('dashboard.pages.product.index', compact('products'));
     }

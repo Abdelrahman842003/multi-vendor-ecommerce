@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Repository;
+namespace App\Http\Repository\Dashboard;
 
-use App\Http\Interface\StoreInterface;
+use App\Http\Interface\Dashboard\StoreInterface;
 use App\Http\Traits\AttachFilesTrait;
-use App\Models\Category;
 use App\Models\Store;
 use Exception;
 use Illuminate\Support\Str;
 
-class StoreRepository implements StoreInterface
+class  StoreRepository implements StoreInterface
 {
     use AttachFilesTrait;
 

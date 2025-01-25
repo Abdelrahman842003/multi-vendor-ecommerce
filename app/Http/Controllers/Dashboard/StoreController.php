@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Interface\StoreInterface;
+use App\Http\Interface\Dashboard\StoreInterface;
 use App\Http\Requests\StoreRequest;
-use Illuminate\Http\Request;
 
 class StoreController extends Controller
 {

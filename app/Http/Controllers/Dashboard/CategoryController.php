@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Interface\CategoryInterface;
+use App\Http\Interface\Dashboard\CategoryInterface;
 use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller

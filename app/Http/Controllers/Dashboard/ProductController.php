@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Interface\ProductInterface;
+use App\Http\Interface\Dashboard\ProductInterface;
 use App\Http\Requests\ProductRequest;
-use App\Http\Requests\StoreRequest;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
